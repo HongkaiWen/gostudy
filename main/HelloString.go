@@ -7,9 +7,12 @@ import (
 func main() {
 	fmt.Println("abc")
 	name := "suzhou"
+	//按位去字符
 	fmt.Println(name[0])
+	//len函数
 	fmt.Println(len(name))
-	//	for(a : range name){
-	//		fmt.Println(a)
-	//	}
+	//遍历字符串
+	for index, char := range name {
+		fmt.Println(index, char)
+	}
 }
