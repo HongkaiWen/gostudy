@@ -6,6 +6,9 @@ import (
 	"net/http"
 )
 
+/**
+*http://blog.csdn.net/kenkao/article/details/47857757
+ */
 func main() {
 	resp, err := http.Get("http://")
 	if err != nil {
