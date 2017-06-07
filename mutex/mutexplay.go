@@ -46,12 +46,12 @@ type Person struct {
 	Student
 }
 
-//type Dog struct {
-//}
+type Dog struct {
+}
 
-//func (s *Dog) study() {
-//	fmt.Println("dog studying...")
-//}
+func (s *Dog) study() {
+	fmt.Println("dog studying...")
+}
 
 func main() {
 	student := NewStudent(2)
@@ -62,7 +62,7 @@ func main() {
 	person := &Person{}
 	person.study()
 
-	//	dog := &Dog{}
+	dog := &Dog{}
 
-	//	teacher(dog) //error
+	teacher(dog) //error
 }

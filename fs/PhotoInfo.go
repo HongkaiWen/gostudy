@@ -1,38 +1,33 @@
 package main
 
-import "fmt"
 import (
-	"github.com/rwcarlsen/goexif/exif"
-	"os"
+	"fmt"
 	"log"
+	"os"
+
+	"github.com/rwcarlsen/goexif/exif"
 	"github.com/rwcarlsen/goexif/mknote"
 )
 
-/**
-https://godoc.org/github.com/rwcarlsen/goexif/exif#example-Decode
- */
-
 func main() {
-	fname := "C:/Users/hongkai/Pictures/docker.jpg"
+	fname := "e:/temp/1.jpg"
 
 	f, err := os.Open(fname)
+	defer f.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Print(f.Name())
-
 
 	// Optionally register camera makenote data parsing - currently Nikon and
 	// Canon are supported.
 	exif.RegisterParsers(mknote.All...)
 
 	x, err := exif.Decode(f)
-
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	fmt.Println(x)
 
 	camModel, _ := x.Get(exif.Model) // normally, don't ignore errors!
 	fmt.Println(camModel.StringVal())
